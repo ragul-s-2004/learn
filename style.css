@@ -1,0 +1,89 @@
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    background: url('./image/rdr2.webp') no-repeat center center fixed;
+    background-size: cover;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.container {
+    background: rgba(0, 0, 0, 0.7);
+    color: #fff;
+    max-width: 400px;
+    margin: 60px auto;
+    padding: 30px 25px 20px 25px;
+    border-radius: 12px;
+    box-shadow: 0 8px 32px 0 rgba(0,0,0,0.37);
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    letter-spacing: 2px;
+}
+
+#todo-form {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+#todo-input {
+    flex: 1;
+    padding: 8px 12px;
+    border-radius: 6px;
+    border: none;
+    font-size: 1rem;
+}
+
+button[type="submit"] {
+    padding: 8px 18px;
+    border: none;
+    border-radius: 6px;
+    background: #e63946;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+button[type="submit"]:hover {
+    background: #b22234;
+}
+
+#todo-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.todo-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: rgba(255,255,255,0.08);
+    margin-bottom: 10px;
+    padding: 10px 12px;
+    border-radius: 6px;
+    transition: background 0.2s;
+}
+
+.todo-item.completed {
+    text-decoration: line-through;
+    opacity: 0.6;
+}
+
+.todo-actions button {
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 1.1rem;
+    margin-left: 8px;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.todo-actions button:hover {
+    color: #e63946;
+}
