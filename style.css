@@ -1,89 +1,146 @@
 body {
-    margin: 0;
-    padding: 0;
-    min-height: 100vh;
-    background: url('./image/rdr2.webp') no-repeat center center fixed;
-    background-size: cover;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  background: url("./image/rdr2.webp") no-repeat center center fixed;
+  background-size: cover;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  position: relative;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    120deg,
+    rgba(230, 57, 70, 0.25) 0%,
+    rgba(29, 53, 87, 0.25) 100%
+  );
+  z-index: 0;
+  pointer-events: none;
 }
 
 .container {
-    background: rgba(0, 0, 0, 0.7);
-    color: #fff;
-    max-width: 400px;
-    margin: 60px auto;
-    padding: 30px 25px 20px 25px;
-    border-radius: 12px;
-    box-shadow: 0 8px 32px 0 rgba(0,0,0,0.37);
+  background: rgba(0, 0, 0, 0.7);
+  color: #fff;
+  max-width: 400px;
+  margin: 60px auto;
+  padding: 30px 25px 20px 25px;
+  border-radius: 12px;
+  border: 1.5px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37),
+    0 1.5px 8px 0 rgba(230, 57, 70, 0.15);
+  backdrop-filter: blur(8px) saturate(120%);
 }
 
 h1 {
-    text-align: center;
-    margin-bottom: 20px;
-    letter-spacing: 2px;
+  text-align: center;
+  margin-bottom: 20px;
+  letter-spacing: 2px;
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #e63946;
+  text-shadow: 1px 2px 8px rgba(0, 0, 0, 0.25);
 }
 
 #todo-form {
-    display: flex;
-    gap: 10px;
-    margin-bottom: 20px;
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
 }
 
 #todo-input {
-    flex: 1;
-    padding: 8px 12px;
-    border-radius: 6px;
-    border: none;
-    font-size: 1rem;
+  flex: 1;
+  padding: 8px 12px;
+  border-radius: 6px;
+  border: none;
+  font-size: 1rem;
+  background: rgba(255, 255, 255, 0.15);
+  color: #fff;
+  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.1);
+  outline: none;
+  transition: box-shadow 0.2s, background 0.2s;
+}
+
+#todo-input:focus {
+  background: rgba(255, 255, 255, 0.25);
+  box-shadow: 0 2px 8px 0 rgba(230, 57, 70, 0.15);
 }
 
 button[type="submit"] {
-    padding: 8px 18px;
-    border: none;
-    border-radius: 6px;
-    background: #e63946;
-    color: #fff;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background 0.2s;
+  padding: 8px 18px;
+  border: none;
+  border-radius: 6px;
+  background: #e63946;
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.2s;
+  box-shadow: 0 1px 4px 0 rgba(230, 57, 70, 0.15);
+  letter-spacing: 1px;
 }
 
 button[type="submit"]:hover {
-    background: #b22234;
+  background: #b22234;
+}
+
+button[type="submit"]:active {
+  background: #7c1620;
 }
 
 #todo-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
 .todo-item {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background: rgba(255,255,255,0.08);
-    margin-bottom: 10px;
-    padding: 10px 12px;
-    border-radius: 6px;
-    transition: background 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(255, 255, 255, 0.08);
+  margin-bottom: 10px;
+  padding: 10px 12px;
+  border-radius: 6px;
+  border-left: 4px solid #e63946;
+  font-size: 1.08rem;
+  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.1);
+  transition: background 0.2s;
 }
 
 .todo-item.completed {
-    text-decoration: line-through;
-    opacity: 0.6;
+  text-decoration: line-through;
+  opacity: 0.6;
+  background: rgba(255, 255, 255, 0.04);
+  border-left: 4px solid #b22234;
 }
 
 .todo-actions button {
-    background: none;
-    border: none;
-    color: #fff;
-    font-size: 1.1rem;
-    margin-left: 8px;
-    cursor: pointer;
-    transition: color 0.2s;
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 1.1rem;
+  margin-left: 8px;
+  cursor: pointer;
+  transition: color 0.2s;
+  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.1));
 }
 
-.todo-actions button:hover {
-    color: #e63946;
+.todo-actions button:hover {           
+  color: #e63946;   
+}
+
+.todo-actions button:active {
+  color: #7c1620;
+}
+
+/* Add smooth transitions for all interactive elements */
+input,
+button,
+.todo-item {
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
