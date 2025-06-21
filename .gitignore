@@ -1,4 +1,4 @@
 *.py
 *.js 
 *.js
-node_modules/
+.ts 
